@@ -21,6 +21,18 @@ import comming4 from '../../assets/comming4.png'
 import comming5 from '../../assets/comming5.png'
 import comming6 from '../../assets/comming6.png'
 import comming7 from '../../assets/comming7.png'
+import actor1 from '../../assets/actor1.png'
+import actor2 from '../../assets/actor2.png'
+import actor3 from '../../assets/actor3.png'
+import actor4 from '../../assets/actor4.png'
+import actor5 from '../../assets/actor5.png'
+import actor6 from '../../assets/actor6.png'
+import news1 from '../../assets/news1.jpg'
+import news2 from '../../assets/news2.jpg'
+import news3 from '../../assets/news3.jpg'
+import news4 from '../../assets/news4.jpg'
+import news5 from '../../assets/news5.jpg'
+import amazon from '../../assets/amazon.png'
 
 export const IMAGES = {
   banner1,
@@ -46,4 +58,16 @@ export const IMAGES = {
   comming5,
   comming6,
   comming7,
+  actor1,
+  actor2,
+  actor3,
+  actor4,
+  actor5,
+  actor6,
+  news1,
+  news2,
+  news3,
+  news4,
+  news5,
+  amazon,
 }

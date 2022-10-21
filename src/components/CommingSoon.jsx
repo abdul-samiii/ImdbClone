@@ -38,10 +38,10 @@ const CommingSoon = () => {
   return (
     <div>
       <div className='flex mt-8'>
-        <h1 className='text-white text-2xl font-extrabold lg:ml-[25%] ml-2 border-l-4 pl-4 border-[#E0B416]'>Comming soon to theaters</h1>
+        <h1 className='text-white text-2xl font-extrabold lg:ml-[17%] ml-2 border-l-4 pl-4 border-[#E0B416]'>Comming soon to theaters</h1>
         <ChevronRight className='h-8 text-white mt-[6px]' />
       </div>
-      <div className='flex lg:ml-[25%] mt-4 overflow-x-scroll md:w-[60%] space-x-4 h-full pb-28'>
+      <div className='flex lg:ml-[17%] mt-4 overflow-x-scroll lg:w-[75%] space-x-4 h-full pb-28 scrollbar-hide'>
         {
           Data.map((item) => (
             <div className='hover:opacity-90 group'>

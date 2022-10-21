@@ -44,21 +44,21 @@ const WhatToWatch = () => {
 
   return (
     <>
-      <div className='flex mt-8'>
-        <h1 className='text-[#E0B416] text-3xl font-extrabold lg:ml-[25%] ml-2'>What to watch</h1>
-        <p className='text-xs text-blue-400 ml-[30%] font-bold cursor-pointer'>Get more recommended...</p>
+      <div className='flex mt-16'>
+        <h1 className='text-[#E0B416] text-3xl font-extrabold lg:ml-[17%] ml-2'>What to watch</h1>
+        <p className='text-xs text-blue-400 ml-[40%] font-bold cursor-pointer'>Get more recommended...</p>
         <ChevronRight className='text-blue-400 -mt-1 md:ml-0 cursor-pointer' />
       </div>
       <div className='flex mt-8'>
-        <h1 className='text-white text-2xl font-extrabold lg:ml-[25%] ml-2 border-l-4 pl-4 border-[#E0B416]'>Top picks</h1>
+        <h1 className='text-white text-2xl font-extrabold lg:ml-[17%] ml-2 border-l-4 pl-4 border-[#E0B416]'>Top picks</h1>
         <ChevronRight className='h-7 text-white mt-1' />
       </div>
-      <p className='text-gray-400 lg:ml-[25%] mt-2 ml-2'>TV Shows and movies just for you</p>
-      <div className='flex lg:ml-[25%] mt-4 overflow-x-scroll space-x-6'>
+      <p className='text-gray-400 lg:ml-[17%] mt-2 ml-2'>TV Shows and movies just for you</p>
+      <div className='flex lg:ml-[17%] lg:w-[75%] mt-4 overflow-x-scroll space-x-6 scrollbar-hide'>
         {
           Data.map((item) => (
-            <div className='relative bg-[#1A1A1A] hover:opacity-70 rounded-b-xl'>
-              <img src={item.img} alt='feature-img' className='h-64 w-48' />
+            <div className='relative bg-[#1A1A1A] hover:opacity-70 rounded-b-xl pb-4'>
+              <img src={item.img} alt='feature-img' className='h-64 w-56' />
               { item.list && (
                 <div className='flex absolute -mt-6'>
                   <List className=' ml-2 h-10 font-extrabold text-white' />

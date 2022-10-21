@@ -34,14 +34,16 @@ const ImageContainer = styled.div`
 const Image = styled.img`
   height: 60%;
   width: 50%;
-  margin: auto;
+  margin-left: 17%;
   @media (max-width: 680px) {
     height: 10%;
     width: 100%;
+    margin: auto;
   }
-  @media screen and (min-width:681px) and (max-width: 1120px) {
+  @media screen and (min-width:681px) and (max-width: 1024px) {
     height: 40%;
     width: 100%;
+    margin: auto;
   }
 `
 
@@ -56,9 +58,9 @@ const Arrow = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
-  left: ${props => props.direction === 'left' && '35%'};
-  right: ${props => props.direction === 'right' && '5%'};
-  margin-top: 18%;
+  left: ${props => props.direction === 'left' && '20%'};
+  right: ${props => props.direction === 'right' && '27%'};
+  margin-top: 13%;
   cursor: pointer;
   z-index: 2;
   @media (max-width: 680px) {
@@ -66,10 +68,15 @@ const Arrow = styled.div`
     left: ${props => props.direction === 'left' && '5%'};
     right: ${props => props.direction === 'right' && '5%'};
   }
-  @media screen and (min-width:681px) and (max-width: 1120px) {
+  @media screen and (min-width:681px) and (max-width: 1024px) {
     bottom: 50%;
     left: ${props => props.direction === 'left' && '5%'};
     right: ${props => props.direction === 'right' && '5%'};
+  }
+  @media screen and (min-width:1025px) and (max-width: 1430px) {
+    bottom: 50%;
+    left: ${props => props.direction === 'left' && '20%'};
+    right: ${props => props.direction === 'right' && '35%'};
   }
 `
 

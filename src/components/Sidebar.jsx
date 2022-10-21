@@ -5,7 +5,7 @@ import { sideData } from '../data'
 const Sidebar = () => {
   console.log()
   return (
-    <div className='lg:w-[30%] ml-4 mt-4'>
+    <div className='lg:w-[30%] mt-4 lg:-ml-80 z-50 md:ml-24 ml-4 sidebarResponsive'>
       <h2 className='text-[#E0B416] text-2xl lg:mt-4 font-extrabold'>Up Next</h2>
       {sideData.map((item) => (
         <div className='flex mt-8 hover:bg-[#121212] w-full'>

@@ -41,15 +41,15 @@ const Featured = () => {
   return (
     <>
       <div className='flex mt-8'>
-        <h1 className='text-[#E0B416] text-3xl font-extrabold lg:ml-[25%] ml-2'>Featured Today</h1>
-        <p className='text-xs text-blue-400 ml-[30%] font-bold cursor-pointer'>Get more recommended...</p>
+        <h1 className='text-[#E0B416] text-3xl font-extrabold lg:ml-[17%] ml-2'>Featured Today</h1>
+        <p className='text-xs text-blue-400 ml-[40%] font-bold cursor-pointer'>Get more recommended...</p>
         <ChevronRight className='text-blue-400 -mt-1 md:ml-0 cursor-pointer' />
       </div>
-      <div className='flex lg:ml-[25%] mt-4 overflow-x-scroll overflow-y-hidden'>
+      <div className='flex lg:ml-[17%] lg:w-[75%] mt-4 overflow-x-scroll overflow-y-hidden scrollbar-hide'>
         {
           Data.map((item) => (
             <div className='relative border-x-[1px] border-white hover:scale-110 hover:z-50 transition transform duration-300 ease-in-out hover:opacity-70'>
-              <img src={item.img} alt='feature-img' className='h-64 w-48' />
+              <img src={item.img} alt='feature-img' className='h-64 w-60' />
               { item.list && (
                 <div className='flex absolute -mt-6'>
                   <List className=' ml-2 h-10 font-extrabold text-white' />

@@ -1,7 +1,8 @@
 import {
-  CommingSoon,
   Explore,
   Featured,
+  Footer,
+  MoreToExplore,
   Nav,
   Sidebar,
   Slider,
@@ -20,7 +21,8 @@ const Home = () => {
       <Featured />
       <WhatToWatch />
       <Explore />
-      <CommingSoon />
+      <MoreToExplore />
+      <Footer />
     </div>
   )
 }

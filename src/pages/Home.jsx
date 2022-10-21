@@ -1,4 +1,5 @@
 import {
+  CommingSoon,
   Explore,
   Featured,
   Nav,
@@ -19,6 +20,7 @@ const Home = () => {
       <Featured />
       <WhatToWatch />
       <Explore />
+      <CommingSoon />
     </div>
   )
 }

@@ -77,7 +77,7 @@ const WhatToWatch = () => {
                 <StarIconO className='h-10 text-blue-400 ml-10 cursor-pointer hover:bg-[#534b4b] rounded-md px-2 py-2 -mt-2' />
               </div>
               <p className='text-white ml-4 w-44 cursor-pointer text-center'>{item.title}</p>
-              <div className='flex justify-center mt-4 hover:bg-[#534b4b]'>
+              <div className='flex justify-center mt-4 hover:bg-[#534b4b] cursor-pointer'>
                 <PlusIcon className='h-6 text-blue-400' />
                 <p className='text-blue-400'>Watchlist</p>
               </div>

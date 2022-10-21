@@ -14,6 +14,13 @@ import watch2 from '../../assets/watch2.png'
 import watch3 from '../../assets/watch3.png'
 import watch4 from '../../assets/watch4.png'
 import watch5 from '../../assets/watch5.png'
+import comming1 from '../../assets/comming1.png'
+import comming2 from '../../assets/comming2.png'
+import comming3 from '../../assets/comming3.png'
+import comming4 from '../../assets/comming4.png'
+import comming5 from '../../assets/comming5.png'
+import comming6 from '../../assets/comming6.png'
+import comming7 from '../../assets/comming7.png'
 
 export const IMAGES = {
   banner1,
@@ -32,4 +39,11 @@ export const IMAGES = {
   watch3,
   watch4,
   watch5,
+  comming1,
+  comming2,
+  comming3,
+  comming4,
+  comming5,
+  comming6,
+  comming7,
 }

@@ -6,33 +6,23 @@ const CommingSoon = () => {
   const Data = [
     {
       id: 1,
-      img: IMAGES.feature1,
-      list: true,
-      photos: false,
+      img: IMAGES.comming1,
+      duration: '1:22',
     },
     {
       id: 2,
-      img: IMAGES.feature2,
-      list: false,
-      photos: false,
+      img: IMAGES.comming2,
+      duration: '2:32',
     },
     {
       id: 3,
-      img: IMAGES.feature3,
-      list: false,
-      photos: false,
+      img: IMAGES.comming3,
+      duration: '1:32',
     },
     {
       id: 4,
-      img: IMAGES.feature4,
-      list: false,
-      photos: true,
-    },
-    {
-      id: 5,
-      img: IMAGES.feature5,
-      list: false,
-      photos: false,
+      img: IMAGES.comming4,
+      duration: '4:12',
     },
   ]
   return (
@@ -41,11 +31,11 @@ const CommingSoon = () => {
         <h1 className='text-white text-2xl font-extrabold lg:ml-[25%] ml-2 border-l-4 pl-4 border-[#E0B416]'>Comming soon to theaters</h1>
         <ChevronRight className='h-8 text-white mt-[6px]' />
       </div>
-      <div className='flex lg:ml-[25%] mt-4 overflow-x-scroll overflow-y-hidden'>
+      <div className='flex lg:ml-[25%] mt-4 overflow-x-scroll md:w-[60%] overflow-y-hidden space-x-4'>
         {
           Data.map((item) => (
-            <div className='relative border-x-[1px] border-white hover:scale-110 hover:z-50 transition transform duration-300 ease-in-out hover:opacity-70'>
-              <img src={item.img} alt='feature-img' className='h-64 w-48' />
+            <div className='relative hover:opacity-70'>
+              <img src={item.img} alt='feature-img' className='h-64 w-[200%]' />
               { item.list && (
                 <div className='flex absolute -mt-6'>
                   <List className=' ml-2 h-10 font-extrabold text-white' />

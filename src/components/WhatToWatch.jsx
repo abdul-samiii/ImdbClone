@@ -47,7 +47,7 @@ const WhatToWatch = () => {
       <div className='flex mt-8'>
         <h1 className='text-[#E0B416] text-3xl font-extrabold lg:ml-[25%] ml-2'>What to watch</h1>
         <p className='text-xs text-blue-400 ml-[30%] font-bold cursor-pointer'>Get more recommended...</p>
-        <ChevronRight className='text-blue-400 -mt-1 -ml-12 md:ml-0 cursor-pointer' />
+        <ChevronRight className='text-blue-400 -mt-1 md:ml-0 cursor-pointer' />
       </div>
       <div className='flex mt-8'>
         <h1 className='text-white text-2xl font-extrabold lg:ml-[25%] ml-2 border-l-4 pl-4 border-[#E0B416]'>Top picks</h1>

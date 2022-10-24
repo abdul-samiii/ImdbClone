@@ -4,10 +4,15 @@ import {
   DocumentPlusIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
 
 const Nav = () => {
-  console.log()
+  const navigate = useNavigate()
+  const handleSignout = () => {
+    window.localStorage.removeItem('token')
+    navigate('/login')
+  }
+
   return (
     <div className='bg-[#121212] h-16 flex items-center md:justify-center justify-evenly'>
       <Bars3Icon className='text-white h-8 md:hidden justify-start' />
@@ -44,8 +49,27 @@ const Nav = () => {
           <option>Sign out</option>
         </select>
       </div>
-      <NavLink to='/signup' className='text-white ml-2 font-semibold cursor-pointer hover:text-white group hover:bg-[#252525] py-2 px-3 rounded-md'>Signup</NavLink>
-      <NavLink to='/login' className='text-white ml-2 font-semibold cursor-pointer hover:text-white group hover:bg-[#252525] py-2 px-3 rounded-md'>Login</NavLink>
+      {
+      window.localStorage.getItem('token') == null
+      && (
+        <>
+          <NavLink to='/signup' className='text-white ml-2 font-semibold cursor-pointer hover:text-white group hover:bg-[#252525] py-2 px-3 rounded-md'>Signup</NavLink>
+          <NavLink to='/login' className='text-white ml-2 font-semibold cursor-pointer hover:text-white group hover:bg-[#252525] py-2 px-3 rounded-md'>Login</NavLink>
+        </>
+      )
+      }
+      {
+      window.localStorage.getItem('token')
+      && (
+      <p
+        className='text-white ml-2 font-semibold cursor-pointer hover:text-white group hover:bg-[#252525] py-2 px-3 rounded-md'
+        onClick={handleSignout}
+        role='presentation'
+      >
+        Logout
+      </p>
+      )
+      }
       <div className='cursor-pointer hover:text-white group hover:bg-[#252525] py-2 px-3 rounded-md hidden md:flex'>
         <select className='w-14 h-8 font-bold bg-[#121212] group-hover:bg-[#252525] text-white'>
           <option>EN</option>

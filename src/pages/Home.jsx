@@ -1,3 +1,4 @@
+import RedirectWithoutLogin from '../AuthRedirection/RedirectWithoutLogin'
 import {
   Explore,
   Featured,
@@ -13,6 +14,7 @@ const Home = () => {
   console.log()
   return (
     <div className=''>
+      <RedirectWithoutLogin />
       <Nav />
       <div className='lg:flex '>
         <Slider />

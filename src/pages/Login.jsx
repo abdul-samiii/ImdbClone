@@ -1,21 +1,35 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useNavigate } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import RedirectWithLogin from '../AuthRedirection/RedirectWithLogin'
 
-import { Footer, Nav } from '../components'
+import { Footer, Loader, Nav } from '../components'
+import { ActionCreators } from '../store'
 
 const Login = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const data = useSelector(item => item?.AuthReducer)
+  const { Signin } = bindActionCreators(ActionCreators, dispatch)
 
   const handleLogin = () => {
     if (email && password) {
-      alert('Login Success!')
+      const obj = {
+        email, password,
+      }
+      Signin(obj)
+      navigate('/')
     } else {
       alert('Please Fill all fields!')
     }
   }
   return (
     <div className='lg:h-screen'>
+      { data?.isLoading && <Loader /> }
+      <RedirectWithLogin />
       <Nav />
       <h1 className='text-[#E0B416] text-3xl font-bold text-center pb-8 mt-28'>Sign into you IMDb account</h1>
       <div className='flex flex-col space-y-6 items-center'>

@@ -4,7 +4,10 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Signup from './pages/Signup'
+import AccountSettings from './pages/AccountSettings'
 import store from './store/Store'
+import Watchlist from './pages/Watchlist'
+import YourRatings from './pages/YourRatings'
 
 const App = () => {
   console.log()
@@ -16,6 +19,9 @@ const App = () => {
             <Route path='/' element={<Home />} />
             <Route path='/signup' element={<Signup />} />
             <Route path='/login' element={<Login />} />
+            <Route path='/settings' element={<AccountSettings />} />
+            <Route path='/watchlist' element={<Watchlist />} />
+            <Route path='/yourratings' element={<YourRatings />} />
           </Routes>
         </BrowserRouter>
       </Provider>

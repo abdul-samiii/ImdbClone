@@ -4,14 +4,47 @@ import {
   DocumentPlusIcon,
   UserCircleIcon,
 } from '@heroicons/react/24/outline'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { bindActionCreators } from 'redux'
+import { ActionCreators } from '../store'
 
 const Nav = () => {
   const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { GetUser } = bindActionCreators(ActionCreators, dispatch)
+  const data = useSelector(item => item)
+  const userData = data?.UserReducer?.user
+  console.log('dataaa : ', data.UserReducer)
   const handleSignout = () => {
     window.localStorage.removeItem('token')
     navigate('/login')
   }
+  const handleGetUser = () => {
+    GetUser(window.localStorage.getItem('uid'))
+  }
+  const handleUserDropdown = (event) => {
+    switch (event.target.value) {
+      case 'Account settings':
+        navigate('/settings')
+        break
+      case 'Your ratings':
+        navigate('/yourratings')
+        break
+      case 'Watchlist':
+        navigate('/watchlist')
+        break
+      case 'Sign out':
+        handleSignout()
+        break
+      default:
+        // hi
+    }
+  }
+  useEffect(() => {
+    handleGetUser()
+  }, [])
 
   return (
     <div className='bg-[#121212] h-16 flex items-center md:justify-center justify-evenly'>
@@ -35,20 +68,38 @@ const Nav = () => {
       </div>
       <h2 className='font-extrabold text-white ml-4 cursor-pointer hidden md:inline-block'>IMDB<span className='text-blue-300'>Pro</span></h2>
       <p className='border-r-2 opacity-25 h-6 ml-4 mr-4 hidden md:inline-block' />
-      <div className='cursor-pointer hover:text-white group hover:bg-[#252525] py-2 px-3 rounded-md hidden lg:flex'>
+      {
+      window.localStorage.getItem('token')
+      && (
+      <div
+        className='cursor-pointer hover:text-white group hover:bg-[#252525] py-2 px-3 rounded-md hidden lg:flex'
+        onClick={() => navigate('/watchlist')}
+        role='presentation'
+      >
         <DocumentPlusIcon className='h-6 text-gray-500 group-hover:text-white' />
         <h4 className='text-white ml-2 font-semibold'>Watchlist</h4>
+        <p className='bg-[#E0B416] ml-1 rounded-full text-sm font-bold w-5 text-center'>1</p>
       </div>
+      )
+      }
+      {
+      window.localStorage.getItem('token')
+      && (
       <div className='cursor-pointer hover:text-white flex group hover:bg-[#252525] py-2 px-3 rounded-md'>
         <UserCircleIcon className='h-8 text-gray-500 group-hover:text-white' />
-        <select className='w-20 h-8 font-bold bg-[#121212] group-hover:bg-[#252525] text-white'>
-          <option>Abdul Sami</option>
+        <select
+          className='w-20 h-8 font-bold bg-[#121212] group-hover:bg-[#252525] text-white'
+          onChange={() => handleUserDropdown(window.event)}
+        >
+          <option>{userData.name}</option>
           <option>Your ratings</option>
           <option>Watchlist</option>
-          <option>Account settings</option>
+          <option><Link to='/settings'>Account settings</Link></option>
           <option>Sign out</option>
         </select>
       </div>
+      )
+      }
       {
       window.localStorage.getItem('token') == null
       && (

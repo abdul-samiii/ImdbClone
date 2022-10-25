@@ -5,6 +5,7 @@ import {
   ShareIcon,
   StarIcon,
 } from '@heroicons/react/24/solid'
+import RedirectWithoutLogin from '../AuthRedirection/RedirectWithoutLogin'
 
 import { Footer, Nav } from '../components'
 import { IMAGES } from '../components/constants'
@@ -13,6 +14,7 @@ const YourRatings = () => {
   const ratingList = true
   return (
     <>
+      <RedirectWithoutLogin />
       <Nav />
       <div className='bg-gray-200'>
         <div className='bg-white md:w-1/2 mx-auto'>

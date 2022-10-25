@@ -5,6 +5,7 @@ import {
   StarIcon,
 } from '@heroicons/react/24/outline'
 import { LockClosedIcon, PencilIcon, ShareIcon } from '@heroicons/react/24/solid'
+import RedirectWithoutLogin from '../AuthRedirection/RedirectWithoutLogin'
 
 import { Footer, Nav } from '../components'
 import { IMAGES } from '../components/constants'
@@ -13,6 +14,7 @@ const Watchlist = () => {
   const watchList = true
   return (
     <>
+      <RedirectWithoutLogin />
       <Nav />
       <div className='bg-gray-200 h-screen'>
         <div className='bg-white md:w-1/2 mx-auto h-screen'>

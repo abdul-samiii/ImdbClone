@@ -2,7 +2,7 @@ import { actionTypes } from '../actionTypes'
 import { InitialState } from '../InitialState'
 
 export const UserReducer = (state = InitialState, action) => {
-  switch(action.type) {
+  switch (action.type) {
     case actionTypes.GET_USER_START:
       return {
         ...state, isLoading: true,

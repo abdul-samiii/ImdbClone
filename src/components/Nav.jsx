@@ -16,7 +16,6 @@ const Nav = () => {
   const { GetUser } = bindActionCreators(ActionCreators, dispatch)
   const data = useSelector(item => item)
   const userData = data?.UserReducer?.user
-  console.log('dataaa : ', data.UserReducer)
   const handleSignout = () => {
     window.localStorage.removeItem('token')
     navigate('/login')

@@ -31,6 +31,7 @@ export const Signin = (data) => async dispatch => {
     const response = await httpRequest.post('auth/login', queryData)
     const result = response.data
     window.localStorage.setItem('token', result.token)
+    window.localStorage.setItem('uid', result.uid)
     toastify(result.message)
     dispatch({ type: actionTypes.LOGIN_SUCCESS, payload: result })
   } catch (error) {

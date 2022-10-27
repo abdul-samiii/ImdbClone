@@ -21,7 +21,7 @@ const AddEvent = () => {
   const handleUploadEvent = () => {
     if (title && description) {
       if (imgLink) {
-        //WIP
+        // WIP
       } else {
         toastifyError('Something went wrong with image upload')
       }

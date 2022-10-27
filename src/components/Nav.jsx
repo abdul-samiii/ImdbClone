@@ -34,6 +34,9 @@ const Nav = () => {
       case 'Watchlist':
         navigate('/watchlist')
         break
+      case 'Channel':
+        navigate('/managechannel')
+        break
       case 'Sign out':
         handleSignout()
         break
@@ -94,6 +97,12 @@ const Nav = () => {
           <option>Your ratings</option>
           <option>Watchlist</option>
           <option><Link to='/settings'>Account settings</Link></option>
+          { userData?.content_creator
+          && (
+            <option>
+              <NavLink to='/managechannel' className='text-white ml-2 font-semibold cursor-pointer hover:text-white group hover:bg-[#252525] py-2 px-3 rounded-md'>Channel</NavLink>
+            </option>
+          )}
           <option>Sign out</option>
         </select>
       </div>

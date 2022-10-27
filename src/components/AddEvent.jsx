@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../store'
+import { toastifyError } from './toastify'
 
 const AddEvent = () => {
   const dispatch = useDispatch()
@@ -20,12 +21,12 @@ const AddEvent = () => {
   const handleUploadEvent = () => {
     if (title && description) {
       if (imgLink) {
-
+        //WIP
       } else {
-        alert('Something went wrong with image upload')
+        toastifyError('Something went wrong with image upload')
       }
     } else {
-      alert('Fill all fields')
+      toastifyError('Fill all fields')
     }
   }
 

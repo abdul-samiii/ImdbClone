@@ -3,4 +3,5 @@ export const InitialState = {
   token: '',
   user: '',
   channel: '',
+  imgLink: '',
 }

@@ -8,7 +8,7 @@ import AccountSettings from './pages/AccountSettings'
 import store from './store/Store'
 import Watchlist from './pages/Watchlist'
 import YourRatings from './pages/YourRatings'
-// import { CreateChannel } from './components'
+import ManageChannel from './pages/ManageChannel'
 
 const App = () => {
   console.log()
@@ -26,6 +26,9 @@ const App = () => {
             <Route path='/updatechannel' element={<AccountSettings />} />
             <Route path='/watchlist' element={<Watchlist />} />
             <Route path='/yourratings' element={<YourRatings />} />
+            <Route path='/managechannel' element={<ManageChannel />} />
+            <Route path='/addevent' element={<ManageChannel />} />
+            <Route path='/addtrailer' element={<ManageChannel />} />
           </Routes>
         </BrowserRouter>
       </Provider>

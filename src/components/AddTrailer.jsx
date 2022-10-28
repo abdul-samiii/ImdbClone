@@ -1,12 +1,49 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { ActionCreators } from '../store'
+import { toastify, toastifyError } from './toastify'
 
 const AddTrailer = () => {
   const [pro, setPro] = useState(false)
   const [free, setFree] = useState(true)
+  const [title, setTitle] = useState('')
+
   const handleTrailerType = () => {
     setPro(!pro)
     setFree(!free)
   }
+  const dispatch = useDispatch()
+  const videoLink = useSelector(item => item?.UploadReducer?.videoLink)
+  const channel = useSelector(item => item?.ChannelReducer?.channel?._id)
+  const { UploadVideo, GetChannel, AddTrailerAction } = bindActionCreators(ActionCreators, dispatch)
+
+  const handleVideoUpload = (e) => {
+    const file = e.target.files[0]
+    if (file) {
+      UploadVideo(file)
+    }
+    toastify(videoLink)
+  }
+  const handleUploadEvent = () => {
+    const type = free ? 'free' : 'pro'
+    if (title && channel) {
+      if (videoLink) {
+        const obj = {
+          title, videoLink, channel, type,
+        }
+        AddTrailerAction(obj)
+      } else {
+        toastifyError('Something went wrong with image upload')
+      }
+    } else {
+      toastifyError('Fill all fields')
+    }
+  }
+
+  useEffect(() => {
+    GetChannel()
+  }, [])
 
   return (
     <div className=' lg:ml-[40%] ml-8 md:ml-[35%]'>
@@ -15,6 +52,8 @@ const AddTrailer = () => {
         <input
           placeholder='Enter Movie Title'
           className='p-2 py-3 rounded-lg w-96'
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
       </div>
       <div className='mt-4'>
@@ -45,11 +84,13 @@ const AddTrailer = () => {
           id='files'
           placeholder='Upload Video'
           className='hidden'
+          onChange={handleVideoUpload}
         />
       </div>
       <button
         className='p-2 rounded-lg w-96 bg-[#E0B416]'
         type='button'
+        onClick={handleUploadEvent}
       >
         Add Trailer
       </button>

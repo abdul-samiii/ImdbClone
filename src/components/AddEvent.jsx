@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../store'
@@ -6,8 +6,9 @@ import { toastifyError } from './toastify'
 
 const AddEvent = () => {
   const dispatch = useDispatch()
-  const imgLink = useSelector(item => item?.UploadReducer)
-  const { UploadImage } = bindActionCreators(ActionCreators, dispatch)
+  const imgLink = useSelector(item => item?.UploadReducer?.imgLink)
+  const channel = useSelector(item => item?.ChannelReducer?.channel?._id)
+  const { UploadImage, AddEventAction, GetChannel } = bindActionCreators(ActionCreators, dispatch)
   const [image] = useState()
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -18,10 +19,16 @@ const AddEvent = () => {
       UploadImage(file)
     }
   }
+  useEffect(() => {
+    GetChannel()
+  }, [])
   const handleUploadEvent = () => {
-    if (title && description) {
+    if (title && description && channel) {
       if (imgLink) {
-        // WIP
+        const obj = {
+          title, description, img: imgLink, channel,
+        }
+        AddEventAction(obj)
       } else {
         toastifyError('Something went wrong with image upload')
       }

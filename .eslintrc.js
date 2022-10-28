@@ -29,6 +29,7 @@ module.exports = {
       'react/jsx-props-no-spreading': 'off',
       'react/jsx-no-bind': 'off',
       "import/prefer-default-export": "off",
-      "default-param-last": 0
+      "default-param-last": 0,
+      "no-underscore-dangle": 'off',
     },
   }

@@ -4,4 +4,5 @@ export const InitialState = {
   user: '',
   channel: '',
   imgLink: '',
+  videoLink: '',
 }

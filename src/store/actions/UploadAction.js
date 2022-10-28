@@ -23,3 +23,25 @@ export const UploadImage = (imgFile) => async dispatch => {
     dispatch({ type: actionTypes.UPLOAD_IMAGE_FAILED })
   }
 }
+
+// UPLOAD VIDEO
+export const UploadVideo = (videoFile) => async dispatch => {
+  const formData = new FormData()
+  formData.append('videos', videoFile)
+  try {
+    dispatch({ type: actionTypes.UPLOAD_VIDEO_START })
+    const response = await httpRequest.post('upload/video', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    const result = response.data
+    console.log('Here we Go! ', response)
+    toastify(result.imgLink)
+    dispatch({ type: actionTypes.UPLOAD_VIDEO_SUCCESS, payload: result.videoLink })
+  } catch (error) {
+    console.log('Error : --- ', error)
+    toastifyError(error.response.data.message)
+    dispatch({ type: actionTypes.UPLOAD_VIDEO_FAILED })
+  }
+}

@@ -1,5 +1,6 @@
 import { useLocation } from 'react-router-dom'
 import {
+  AddCelebrity,
   AddEvent,
   AddTrailer,
   ChannelMenu,
@@ -16,6 +17,7 @@ const ManageChannel = () => {
       { location.pathname === '/managechannel' && <ChannelMenu /> }
       { location.pathname === '/addevent' && <AddEvent /> }
       { location.pathname === '/addtrailer' && <AddTrailer /> }
+      { location.pathname === '/addcelebrity' && <AddCelebrity /> }
       <Footer />
     </div>
   )

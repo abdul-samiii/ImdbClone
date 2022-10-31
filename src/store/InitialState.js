@@ -5,4 +5,8 @@ export const InitialState = {
   channel: '',
   imgLink: '',
   videoLink: '',
+  events: [],
+  celebrities: [],
+  freeTrailers: [],
+  proTrailers: [],
 }

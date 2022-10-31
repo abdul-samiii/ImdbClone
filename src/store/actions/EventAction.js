@@ -21,3 +21,20 @@ export const AddEventAction = (data) => async dispatch => {
     toastifyError(error.response.data.message)
   }
 }
+
+export const GetAllEventsAction = () => async dispatch => {
+  try {
+    dispatch({ type: actionTypes.GET_EVENTS_START })
+    const response = await httpRequest.get('event/', {
+      headers: {
+        Authorization: `bearer ${window.localStorage.getItem('token')}`,
+      },
+    })
+    const result = response.data
+    toastify(result.message)
+    dispatch({ type: actionTypes.GET_EVENTS_SUCCESS, payload: result.events })
+  } catch (error) {
+    dispatch({ type: actionTypes.GET_EVENTS_FAILED })
+    toastifyError(error.response.data.message)
+  }
+}

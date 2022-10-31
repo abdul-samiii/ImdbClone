@@ -4,37 +4,37 @@ import { toastify, toastifyError } from '../../components/toastify'
 import { actionTypes } from '../actionTypes'
 import { httpRequest } from '../../config'
 
-export const AddTrailerAction = (data) => async dispatch => {
+export const AddCelebrityAction = (data) => async dispatch => {
   try {
-    dispatch({ type: actionTypes.ADD_TRAILER_START })
+    dispatch({ type: actionTypes.ADD_CELEBRITY_START })
     const queryData = qs.stringify(data)
-    const response = await httpRequest.post('movies/create', queryData, {
+    const response = await httpRequest.post('celebrity/create', queryData, {
       headers: {
         Authorization: `bearer ${window.localStorage.getItem('token')}`,
       },
     })
     const result = response.data
     toastify(result.message)
-    dispatch({ type: actionTypes.ADD_TRAILER_SUCCESS, payload: result })
+    dispatch({ type: actionTypes.ADD_CELEBRITY_SUCCESS, payload: result })
   } catch (error) {
-    dispatch({ type: actionTypes.ADD_TRAILER_FAILED })
+    dispatch({ type: actionTypes.ADD_CELEBRITY_FAILED })
     toastifyError(error.response.data.message)
   }
 }
 
-export const GetAllFreeTrailers = () => async dispatch => {
+export const GetAllCelebritiesAction = () => async dispatch => {
   try {
-    dispatch({ type: actionTypes.GET_FREE_TRAILER_START })
-    const response = await httpRequest.get('movies/free', {
+    dispatch({ type: actionTypes.GET_CELEBRITIES_START })
+    const response = await httpRequest.get('celebrity/', {
       headers: {
         Authorization: `bearer ${window.localStorage.getItem('token')}`,
       },
     })
     const result = response.data
     toastify(result.message)
-    dispatch({ type: actionTypes.GET_FREE_TRAILER_SUCCESS, payload: result.freeMovies })
+    dispatch({ type: actionTypes.GET_CELEBRITIES_SUCCESS, payload: result.celebrities })
   } catch (error) {
-    dispatch({ type: actionTypes.GET_FREE_TRAILER_FAILED })
+    dispatch({ type: actionTypes.GET_CELEBRITIES_FAILED })
     toastifyError(error.response.data.message)
   }
 }

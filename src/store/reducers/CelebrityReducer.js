@@ -1,29 +1,29 @@
 import { actionTypes } from '../actionTypes'
 import { InitialState } from '../InitialState'
 
-export const TrailerReducer = (state = InitialState, action) => {
+export const CelebrityReducer = (state = InitialState, action) => {
   switch (action?.type) {
-    case actionTypes.ADD_TRAILER_START:
+    case actionTypes.ADD_CELEBRITY_START:
       return {
         ...state, isLoading: true,
       }
-    case actionTypes.ADD_TRAILER_SUCCESS:
+    case actionTypes.ADD_CELEBRITY_SUCCESS:
       return {
         ...state, isLoading: false,
       }
-    case actionTypes.ADD_TRAILER_FAILED:
+    case actionTypes.ADD_CELEBRITY_FAILED:
       return {
         ...state, isLoading: false,
       }
-    case actionTypes.GET_FREE_TRAILER_START:
+    case actionTypes.GET_CELEBRITIES_START:
       return {
         ...state, isLoading: true,
       }
-    case actionTypes.GET_FREE_TRAILER_SUCCESS:
+    case actionTypes.GET_CELEBRITIES_SUCCESS:
       return {
-        ...state, isLoading: false, freeTrailers: action.payload,
+        ...state, isLoading: false, celebrities: action.payload,
       }
-    case actionTypes.GET_FREE_TRAILER_FAILED:
+    case actionTypes.GET_CELEBRITIES_FAILED:
       return {
         ...state, isLoading: false,
       }

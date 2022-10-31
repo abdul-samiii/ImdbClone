@@ -15,6 +15,18 @@ export const EventReducer = (state = InitialState, action) => {
       return {
         ...state, isLoading: false,
       }
+    case actionTypes.GET_EVENTS_START:
+      return {
+        ...state, isLoading: true,
+      }
+    case actionTypes.GET_EVENTS_SUCCESS:
+      return {
+        ...state, isLoading: false, events: action.payload,
+      }
+    case actionTypes.GET_EVENTS_FAILED:
+      return {
+        ...state, isLoading: false,
+      }
     default:
       return {
         ...state,

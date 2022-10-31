@@ -1,39 +1,52 @@
 import { ChevronRight } from '@mui/icons-material'
-import { IMAGES } from './constants'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { ActionCreators } from '../store'
 
 const TopNews = () => {
-  const Data = [
-    {
-      id: 1,
-      img: IMAGES.news1,
-      news: 'Psychological Thriller ‘The Eye’ Starring Shruti Haasan & Mark Rowley Starts Production',
-      channel: 'Deadline film + TV',
-    },
-    {
-      id: 2,
-      img: IMAGES.news2,
-      news: ' Stephen Curry Doc ‘Underrated’ From A24 Lands at Apple ',
-      channel: 'The Wrap',
-    },
-    {
-      id: 3,
-      img: IMAGES.news3,
-      news: 'Peeling Back ‘Glass Onion’: Netflix’s ‘Knives Out’ Theater Plan Sparks Box Office Controversy',
-      channel: 'The Hollywood Reporter',
-    },
-    {
-      id: 4,
-      img: IMAGES.news4,
-      news: 'Anil Kapoor, Madhuri Dixit Hit ‘Jamai Raja’ Gets Reboot From Shemaroo, Imen (Exclusive)',
-      channel: 'Variety Films',
-    },
-    {
-      id: 5,
-      img: IMAGES.news5,
-      news: '‘From Scratch’ Creators on Cooking Up a Very Personal Netflix Series',
-      channel: 'The Hollywood Reporter',
-    },
-  ]
+  const dispatch = useDispatch()
+  const { GetAllEventsAction } = bindActionCreators(ActionCreators, dispatch)
+  const EventsData = useSelector(item => item?.EventReducer?.events)
+  useEffect(() => {
+    GetAllEventsAction()
+  }, [])
+  // const Data = [
+  //   {
+  //     id: 1,
+  //     img: IMAGES.news1,
+  //     news: 'Psychological Thriller ‘The Eye’ Starring
+  // Shruti Haasan & Mark Rowley Starts Production',
+  //     channel: 'Deadline film + TV',
+  //   },
+  //   {
+  //     id: 2,
+  //     img: IMAGES.news2,
+  //     news: ' Stephen Curry Doc ‘Underrated’ From A24 Lands at Apple ',
+  //     channel: 'The Wrap',
+  //   },
+  //   {
+  //     id: 3,
+  //     img: IMAGES.news3,
+  //     news: 'Peeling Back ‘Glass Onion’: Netflix’s ‘Knives Out’
+  // Theater Plan Sparks Box Office Controversy',
+  //     channel: 'The Hollywood Reporter',
+  //   },
+  //   {
+  //     id: 4,
+  //     img: IMAGES.news4,
+  //     news: 'Anil Kapoor, Madhuri Dixit Hit ‘Jamai Raja’ Gets
+  // Reboot From Shemaroo, Imen (Exclusive)',
+  //     channel: 'Variety Films',
+  //   },
+  //   {
+  //     id: 5,
+  //     img: IMAGES.news5,
+  //     news: '‘From Scratch’ Creators on Cooking Up a Very
+  // Personal Netflix Series',
+  //     channel: 'The Hollywood Reporter',
+  //   },
+  // ]
   return (
     <div>
       <div className='flex mt-8'>
@@ -42,12 +55,12 @@ const TopNews = () => {
       </div>
       <div className='flex lg:ml-[17%] mt-4 overflow-x-scroll lg:w-[70%] space-x-4 h-full scrollbar-hide'>
         {
-          Data.map((item) => (
+          EventsData.map((item) => (
             <div className='hover:opacity-90 group flex w-[70%]'>
-              <img src={item.img} alt='feature-img' className='h-[100%]' />
+              <img src={`http://localhost:5500/uploads/images/${item.img}`} alt='feature-img' className='h-[100%]' />
               <div className='w-[380px] ml-4'>
-                <p className=' cursor-pointer text-white mt-2'>{item.news}</p>
-                <p className='text-gray-500 cursor-pointer'>{item.channel}</p>
+                <p className=' cursor-pointer text-white mt-2'>{item.title}</p>
+                <p className='text-gray-500 cursor-pointer'>{item.channel.channelName}</p>
               </div>
             </div>
           ))

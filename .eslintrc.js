@@ -31,5 +31,6 @@ module.exports = {
       "import/prefer-default-export": "off",
       "default-param-last": 0,
       "no-underscore-dangle": 'off',
+      "jsx-a11y/media-has-caption": 'off',
     },
   }

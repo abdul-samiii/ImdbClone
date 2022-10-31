@@ -29,6 +29,7 @@ const App = () => {
             <Route path='/managechannel' element={<ManageChannel />} />
             <Route path='/addevent' element={<ManageChannel />} />
             <Route path='/addtrailer' element={<ManageChannel />} />
+            <Route path='/addcelebrity' element={<ManageChannel />} />
           </Routes>
         </BrowserRouter>
       </Provider>

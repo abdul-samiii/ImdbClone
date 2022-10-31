@@ -21,7 +21,7 @@ const ChannelMenu = () => {
           <h2 className='text-white font-bold text-lg bg-[#363232] w-52 text-center p-2 rounded-sm hover:scale-105  transition duration-300 ease-in-out cursor-pointer'><Link to='/addtrailer'>Add a Trailer</Link></h2>
         </div>
         <div className='space-y-2'>
-          <h2 className='text-white font-bold text-lg bg-[#363232] w-52 text-center p-2 rounded-sm hover:scale-105  transition duration-300 ease-in-out cursor-pointer'>Add a Celebrity</h2>
+          <h2 className='text-white font-bold text-lg bg-[#363232] w-52 text-center p-2 rounded-sm hover:scale-105  transition duration-300 ease-in-out cursor-pointer'><Link to='/addcelebrity'>Add a Celebrity</Link></h2>
           <h2 className='text-white font-bold text-lg bg-[#363232] w-52 text-center p-2 rounded-sm hover:scale-105  transition duration-300 ease-in-out cursor-pointer'>Upload DP</h2>
         </div>
       </div>

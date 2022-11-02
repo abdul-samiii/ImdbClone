@@ -1,42 +1,52 @@
 import List from '@mui/icons-material/List'
 import PhotoLibrary from '@mui/icons-material/PhotoLibrary'
 import ChevronRight from '@mui/icons-material/ChevronRight'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-import { IMAGES } from './constants'
+import { ActionCreators } from '../store'
 
 const Featured = () => {
-  const Data = [
-    {
-      id: 1,
-      img: IMAGES.feature1,
-      list: true,
-      photos: false,
-    },
-    {
-      id: 2,
-      img: IMAGES.feature2,
-      list: false,
-      photos: false,
-    },
-    {
-      id: 3,
-      img: IMAGES.feature3,
-      list: false,
-      photos: false,
-    },
-    {
-      id: 4,
-      img: IMAGES.feature4,
-      list: false,
-      photos: true,
-    },
-    {
-      id: 5,
-      img: IMAGES.feature5,
-      list: false,
-      photos: false,
-    },
-  ]
+  const dispatch = useDispatch()
+  const { GetAllFreeImages } = bindActionCreators(ActionCreators, dispatch)
+  const ImagesData = useSelector(item => item?.MovieReducer?.freeImages)
+  useEffect(() => {
+    GetAllFreeImages()
+  }, [])
+  console.log('asasas ', ImagesData)
+  // const Data = [
+  //   {
+  //     id: 1,
+  //     img: IMAGES.feature1,
+  //     list: true,
+  //     photos: false,
+  //   },
+  //   {
+  //     id: 2,
+  //     img: IMAGES.feature2,
+  //     list: false,
+  //     photos: false,
+  //   },
+  //   {
+  //     id: 3,
+  //     img: IMAGES.feature3,
+  //     list: false,
+  //     photos: false,
+  //   },
+  //   {
+  //     id: 4,
+  //     img: IMAGES.feature4,
+  //     list: false,
+  //     photos: true,
+  //   },
+  //   {
+  //     id: 5,
+  //     img: IMAGES.feature5,
+  //     list: false,
+  //     photos: false,
+  //   },
+  // ]
 
   return (
     <>
@@ -47,9 +57,9 @@ const Featured = () => {
       </div>
       <div className='flex lg:ml-[17%] lg:w-[75%] mt-4 overflow-x-scroll overflow-y-hidden scrollbar-hide'>
         {
-          Data.map((item) => (
+          ImagesData?.map((item) => (
             <div className='relative border-x-[1px] border-white hover:scale-110 hover:z-50 transition transform duration-300 ease-in-out hover:opacity-70'>
-              <img src={item.img} alt='feature-img' className='h-64 w-60' />
+              <img src={`http://localhost:5500/uploads/images/${item.link}`} alt='feature-img' className='h-64 w-60' />
               { item.list && (
                 <div className='flex absolute -mt-6'>
                   <List className=' ml-2 h-10 font-extrabold text-white' />
@@ -62,7 +72,7 @@ const Featured = () => {
                   <p className='text-white font-bold ml-1'>Photos</p>
                 </div>
               )}
-              <p className='ml-4 w-44 cursor-pointer'>.</p>
+              <p className='ml-4 w-44 cursor-pointer text-white text-center font-bold'>{item.title}</p>
             </div>
           ))
         }

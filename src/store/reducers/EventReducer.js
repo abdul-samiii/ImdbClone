@@ -27,6 +27,30 @@ export const EventReducer = (state = InitialState, action) => {
       return {
         ...state, isLoading: false,
       }
+    case actionTypes.GET_CHANNEL_EVENTS_START:
+      return {
+        ...state, isLoading: true,
+      }
+    case actionTypes.GET_CHANNEL_EVENTS_SUCCESS:
+      return {
+        ...state, isLoading: false, channelEvents: action.payload,
+      }
+    case actionTypes.GET_CHANNEL_EVENTS_FAILED:
+      return {
+        ...state, isLoading: false,
+      }
+    case actionTypes.DELETE_CHANNEL_EVENT_START:
+      return {
+        ...state, isLoading: true,
+      }
+    case actionTypes.DELETE_CHANNEL_EVENT_SUCCESS:
+      return {
+        ...state, isLoading: false,
+      }
+    case actionTypes.DELETE_CHANNEL_EVENT_FAILED:
+      return {
+        ...state, isLoading: false,
+      }
     default:
       return {
         ...state,

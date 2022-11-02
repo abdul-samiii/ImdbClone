@@ -9,4 +9,7 @@ export const InitialState = {
   celebrities: [],
   freeTrailers: [],
   proTrailers: [],
+  freeImages: [],
+  paidImges: [],
+  channelEvents: [],
 }

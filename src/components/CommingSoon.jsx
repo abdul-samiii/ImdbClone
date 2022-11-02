@@ -10,11 +10,10 @@ import { ActionCreators } from '../store'
 const CommingSoon = () => {
   const dispatch = useDispatch()
   const { GetAllFreeTrailers } = bindActionCreators(ActionCreators, dispatch)
-  const FreeTrailerData = useSelector(item => item?.TrailerReducer?.freeTrailers)
+  const FreeTrailerData = useSelector(item => item?.MovieReducer?.freeTrailers)
   useEffect(() => {
     GetAllFreeTrailers()
   }, [])
-  console.log('fuckkkkkkk ', FreeTrailerData)
   // const Data = [
   //   {
   //     id: 1,

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import List from '@mui/icons-material/List'
 import PhotoLibrary from '@mui/icons-material/PhotoLibrary'
 import ChevronRight from '@mui/icons-material/ChevronRight'
@@ -6,41 +7,50 @@ import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 import { StarIcon, PlusIcon } from '@heroicons/react/24/solid'
 import { StarIcon as StarIconO } from '@heroicons/react/24/outline'
 
-import { IMAGES } from './constants'
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { ActionCreators } from '../store'
 
 const WhatToWatch = () => {
-  const Data = [
-    {
-      id: 1,
-      img: IMAGES.watch1,
-      ratings: 7.2,
-      title: '777 Charlie',
-    },
-    {
-      id: 2,
-      img: IMAGES.watch2,
-      ratings: 9.6,
-      title: 'K.G.F Chapter 2',
-    },
-    {
-      id: 3,
-      img: IMAGES.watch3,
-      ratings: 6.7,
-      title: 'Karthikeya 2',
-    },
-    {
-      id: 4,
-      img: IMAGES.watch4,
-      ratings: 5.8,
-      title: 'Garuda Gamana Vrishabha Vahana',
-    },
-    {
-      id: 5,
-      img: IMAGES.watch5,
-      ratings: 9.3,
-      title: 'Vikrant Rona',
-    },
-  ]
+  const dispatch = useDispatch()
+  const { GetAllFreeTrailers } = bindActionCreators(ActionCreators, dispatch)
+  const FreeTrailerData = useSelector(item => item?.MovieReducer?.freeTrailers)
+  useEffect(() => {
+    GetAllFreeTrailers()
+  }, [])
+
+  // const Data = [
+  //   {
+  //     id: 1,
+  //     img: IMAGES.watch1,
+  //     ratings: 7.2,
+  //     title: '777 Charlie',
+  //   },
+  //   {
+  //     id: 2,
+  //     img: IMAGES.watch2,
+  //     ratings: 9.6,
+  //     title: 'K.G.F Chapter 2',
+  //   },
+  //   {
+  //     id: 3,
+  //     img: IMAGES.watch3,
+  //     ratings: 6.7,
+  //     title: 'Karthikeya 2',
+  //   },
+  //   {
+  //     id: 4,
+  //     img: IMAGES.watch4,
+  //     ratings: 5.8,
+  //     title: 'Garuda Gamana Vrishabha Vahana',
+  //   },
+  //   {
+  //     id: 5,
+  //     img: IMAGES.watch5,
+  //     ratings: 9.3,
+  //     title: 'Vikrant Rona',
+  //   },
+  // ]
 
   return (
     <>
@@ -56,9 +66,12 @@ const WhatToWatch = () => {
       <p className='text-gray-400 lg:ml-[17%] mt-2 ml-2'>TV Shows and movies just for you</p>
       <div className='flex lg:ml-[17%] lg:w-[75%] mt-4 overflow-x-scroll space-x-6 scrollbar-hide'>
         {
-          Data.map((item) => (
+          FreeTrailerData.map((item) => (
             <div className='relative bg-[#1A1A1A] hover:opacity-70 rounded-b-xl pb-4'>
-              <img src={item.img} alt='feature-img' className='h-64 w-56' />
+              {/* <img src={item.img} alt='feature-img' className='h-64 w-56' /> */}
+              <video className='h-fit w-[300px] max-w-none'>
+                <source src={`http://localhost:5500/uploads/videos/${item.link}`} type='video/mp4' />
+              </video>
               { item.list && (
                 <div className='flex absolute -mt-6'>
                   <List className=' ml-2 h-10 font-extrabold text-white' />

@@ -38,3 +38,38 @@ export const GetAllEventsAction = () => async dispatch => {
     toastifyError(error.response.data.message)
   }
 }
+
+export const GetChannelEventsAction = (channelID) => async dispatch => {
+  try {
+    dispatch({ type: actionTypes.GET_CHANNEL_EVENTS_START })
+    const response = await httpRequest.get(`event/channelevents/${channelID}`, {
+      headers: {
+        Authorization: `bearer ${window.localStorage.getItem('token')}`,
+      },
+    })
+    const result = response.data
+    toastify(result.message)
+    dispatch({ type: actionTypes.GET_CHANNEL_EVENTS_SUCCESS, payload: result.channelEvents })
+  } catch (error) {
+    dispatch({ type: actionTypes.GET_CHANNEL_EVENTS_FAILED })
+    toastifyError(error.response.data.message)
+  }
+}
+
+export const DeleteChannelEventAction = (channelID, eventId) => async dispatch => {
+  try {
+    dispatch({ type: actionTypes.GET_CHANNEL_EVENTS_START })
+    const response = await httpRequest.delete(`event/${eventId}`, {
+      headers: {
+        Authorization: `bearer ${window.localStorage.getItem('token')}`,
+        channel: channelID,
+      },
+    })
+    const result = response.data
+    toastify(result.message)
+    dispatch({ type: actionTypes.GET_CHANNEL_EVENTS_SUCCESS, payload: result.channelEvents })
+  } catch (error) {
+    dispatch({ type: actionTypes.GET_CHANNEL_EVENTS_FAILED })
+    toastifyError(error.response.data.message)
+  }
+}

@@ -12,4 +12,5 @@ export const InitialState = {
   freeImages: [],
   paidImges: [],
   channelEvents: [],
+  watchlist: [],
 }

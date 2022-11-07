@@ -1,17 +1,27 @@
 import {
   FolderPlusIcon,
-  PlayCircleIcon,
   Squares2X2Icon,
   StarIcon,
 } from '@heroicons/react/24/outline'
 import { LockClosedIcon, PencilIcon, ShareIcon } from '@heroicons/react/24/solid'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import RedirectWithoutLogin from '../AuthRedirection/RedirectWithoutLogin'
 
 import { Footer, Nav } from '../components'
-import { IMAGES } from '../components/constants'
+import { ActionCreators } from '../store'
 
 const Watchlist = () => {
-  const watchList = true
+  const dispatch = useDispatch()
+  const {
+    GetWatchlistTrailer,
+  } = bindActionCreators(ActionCreators, dispatch)
+  const FreeTrailerData = useSelector(item => item?.WatchlistReducer?.watchlist)
+  useEffect(() => {
+    GetWatchlistTrailer()
+  }, [])
+
   return (
     <>
       <RedirectWithoutLogin />
@@ -51,37 +61,44 @@ const Watchlist = () => {
               <p className='border-2 rounded-md px-2 py-1'>REFINE</p>
             </div>
           </div>
-          {watchList ? (
-            <div className='flex py-12 px-4'>
-              <div className='h-full flex group'>
-                <img src={IMAGES.feature3} alt='feature-img' className='h-[10%] w-[200px] max-w-none relative hover:opacity-80 transform duration-300 ease-in-out' />
-                <PlayCircleIcon className='h-12 text-white my-28 ml-20 absolute z-50 hidden group-hover:inline cursor-pointer' />
-              </div>
-              <p className='font-mono px-2 mt-1'>1.</p>
-              <div>
-                <h2 className='font-bold text-lg text-blue-600'>House of the dragon</h2>
-                <p className='text-xs'>Hollywood news internationl</p>
-                <div className='flex py-2'>
-                  <StarIcon className='h-5 text-blue-600 cursor-pointer' />
-                  <p className='text-gray-600 text-sm'>Rate</p>
+          <div className='overflow-y-scroll'>
+            {FreeTrailerData
+              ? (
+                FreeTrailerData?.map((watchlist) => {
+                  console.log()
+                  return (
+                    <div className='flex py-12 px-4'>
+                      <div className='h-full flex group'>
+                        <video className='h-[100%] w-[300px] max-w-none' controls>
+                          <source src={`http://localhost:5500/uploads/videos/${watchlist?.freeVideo?.link}`} type='video/mp4' />
+                        </video>
+                      </div>
+                      <p className='font-mono px-2 mt-1'>1.</p>
+                      <div>
+                        <h2 className='font-bold text-lg text-blue-600'>{watchlist?.freeVideo?.title}</h2>
+                        <p className='text-xs'>{watchlist?.freeVideo.channel.channelName}</p>
+                        <div className='flex py-2'>
+                          <StarIcon className='h-5 text-blue-600 cursor-pointer' />
+                          <p className='text-gray-600 text-sm'>Rate</p>
+                        </div>
+                        <p className='text-gray-600 text-sm py-4'>Released on {new Date().getDate()}-{new Date().getMonth()} -
+                          {new Date().getFullYear()}
+                        </p>
+                        <p className='w-1/2 text-sm text-gray-700'>All the rights of this movies is reserved. You can watch the movie at demolink.com</p>
+                      </div>
+                    </div>
+                  )
+                })
+              )
+              : (
+                <div className='m-auto mt-20'>
+                  <FolderPlusIcon className='h-20 text-gray-400 m-auto' />
+                  <h2 className='text-center mt-4 text-xl'>Your Rating list is empty</h2>
+                  <p className='w-1/2 text-center flex mx-auto mt-8 text-gray-500'>Add movies and shows to your Watchlist to keep track of what you want to watch.</p>
+                  <p className='text-blue-600 cursor-pointer hover:underline text-sm text-center'>Browse popular Movies</p>
                 </div>
-                <p className='text-gray-600 text-sm py-4'>Released on {new Date().getDate()}-{new Date().getMonth()} -
-                  {new Date().getFullYear()}
-                </p>
-                <p className='w-1/2 text-sm text-gray-700'>An internal succession war within House Targaryen
-                  at the height of its power, 172 years before the birth of Daenerys Targaryen.
-                </p>
-              </div>
-            </div>
-          )
-            : (
-              <div className='m-auto mt-20'>
-                <FolderPlusIcon className='h-20 text-gray-400 m-auto' />
-                <h2 className='text-center mt-4 text-xl'>Your Rating list is empty</h2>
-                <p className='w-1/2 text-center flex mx-auto mt-8 text-gray-500'>Add movies and shows to your Watchlist to keep track of what you want to watch.</p>
-                <p className='text-blue-600 cursor-pointer hover:underline text-sm text-center'>Browse popular Movies</p>
-              </div>
-            )}
+              )}
+          </div>
         </div>
       </div>
       <div className='mt-32'>

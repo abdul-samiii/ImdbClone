@@ -32,5 +32,6 @@ module.exports = {
       "default-param-last": 0,
       "no-underscore-dangle": 'off',
       "jsx-a11y/media-has-caption": 'off',
+      "no-return-assign": 'off',
     },
   }

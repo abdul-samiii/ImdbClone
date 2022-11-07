@@ -5,8 +5,10 @@ import { CelebrityReducer } from './CelebrityReducer'
 import { ChannelReducer } from './ChannelReducer'
 import { EventReducer } from './EventReducer'
 import { MovieReducer } from './MovieReducer'
+import { ReviewReducer } from './ReviewsReducer'
 import { UploadReducer } from './UploadReducer'
 import { UserReducer } from './UserReducer'
+import { WatchlistReducer } from './WatchlistReducer'
 
 const rootReducer = combineReducers({
   AuthReducer,
@@ -16,5 +18,7 @@ const rootReducer = combineReducers({
   EventReducer,
   MovieReducer,
   CelebrityReducer,
+  ReviewReducer,
+  WatchlistReducer,
 })
 export default rootReducer

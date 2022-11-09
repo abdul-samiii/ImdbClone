@@ -6,6 +6,7 @@ import PlayArrow from '@mui/icons-material/PlayArrow'
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined'
 import { StarIcon, PlusIcon } from '@heroicons/react/24/solid'
 import { StarIcon as StarIconO } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -40,7 +41,10 @@ const WhatToWatch = () => {
   }
   const handleAddToWatchlist = (trailerID, channel, type) => {
     const obj = {
-      trailerID, channel, type,
+      trailerID,
+      channel,
+      type,
+      userID: window.localStorage.getItem('uid'),
     }
     AddWatchlistTrailer(obj)
   }
@@ -54,7 +58,7 @@ const WhatToWatch = () => {
     <>
       <div className='flex mt-16'>
         <h1 className='text-[#E0B416] text-3xl font-extrabold lg:ml-[17%] ml-2'>What to watch</h1>
-        <p className='text-xs text-blue-400 ml-[40%] font-bold cursor-pointer'>Get more recommended...</p>
+        <Link to='/trailers' className='text-xs text-blue-400 ml-[40%] font-bold cursor-pointer'>Get more recommended...</Link>
         <ChevronRight className='text-blue-400 -mt-1 md:ml-0 cursor-pointer' />
       </div>
       <div className='flex mt-8'>
@@ -105,7 +109,7 @@ const WhatToWatch = () => {
               <div className='justify-center mt-4'>
                 <div className='flex justify-center'>
                   <StarIcon className='h-5 text-[#E0B416]' />
-                  <p className='text-white ml-1 -mt-[1px]'>{item?.reviews[0] ? (sum / item.reviews.length) : 0 }</p>
+                  <p className='text-white ml-1 -mt-[1px]'>{item?.reviews[0] ? Number(sum / item.reviews.length).toFixed(2) : 0 }{item.reviews.length > 0 && `(${item.reviews.length})` }</p>
                 </div>
                 <div className='flex justify-center mt-4 mb-4'>
                   { starFlag >= 1

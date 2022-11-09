@@ -24,6 +24,26 @@ export const GetUsersReviewedTrailers = () => async dispatch => {
   }
 }
 
+export const GetAllUserReviews = () => async dispatch => {
+  try {
+    dispatch({ type: actionTypes.GET_ALL_USER_RATINGS_START })
+    const response = await httpRequest.get(`review/${window.localStorage.getItem('uid')}`, {
+      headers: {
+        Authorization: `bearer ${window.localStorage.getItem('token')}`,
+      },
+    })
+    const result = response.data
+    toastify(result.message)
+    dispatch({
+      type: actionTypes.GET_ALL_USER_RATINGS_SUCCESS,
+      payload: result.trailerReview,
+    })
+  } catch (error) {
+    dispatch({ type: actionTypes.GET_ALL_USER_RATINGS_FAILED })
+    toastifyError(error.response.data.message)
+  }
+}
+
 export const AddTrailerReview = (data) => async dispatch => {
   console.log('hihihihihihihi')
   try {

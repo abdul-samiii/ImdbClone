@@ -13,4 +13,6 @@ export const InitialState = {
   paidImges: [],
   channelEvents: [],
   watchlist: [],
+  userRatings: [],
+  searchData: [],
 }

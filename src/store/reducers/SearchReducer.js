@@ -1,17 +1,17 @@
 import { actionTypes } from '../actionTypes'
 import { InitialState } from '../InitialState'
 
-export const ReviewReducer = (state = InitialState, action) => {
+export const SearchReducer = (state = InitialState, action) => {
   switch (action?.type) {
-    case actionTypes.GET_ALL_USER_RATINGS_START:
+    case actionTypes.GET_SEARCH_RESULTS_START:
       return {
         ...state, isLoading: true,
       }
-    case actionTypes.GET_ALL_USER_RATINGS_SUCCESS:
+    case actionTypes.GET_SEARCH_RESULTS_SUCCESS:
       return {
-        ...state, isLoading: false, userRatings: action.payload,
+        ...state, isLoading: false, searchData: action.payload,
       }
-    case actionTypes.GET_ALL_USER_RATINGS_FAILED:
+    case actionTypes.GET_SEARCH_RESULTS_FAILED:
       return {
         ...state, isLoading: false,
       }

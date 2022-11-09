@@ -1,7 +1,10 @@
-import { ChevronRight } from '@mui/icons-material'
+import ChevronRight from '@mui/icons-material/ChevronRight'
+import { ChevronRight as ChevronRightIcon } from '@mui/icons-material'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import { Link } from 'react-router-dom'
+
 import { ActionCreators } from '../store'
 
 const TopNews = () => {
@@ -11,47 +14,16 @@ const TopNews = () => {
   useEffect(() => {
     GetAllEventsAction()
   }, [])
-  // const Data = [
-  //   {
-  //     id: 1,
-  //     img: IMAGES.news1,
-  //     news: 'Psychological Thriller ‘The Eye’ Starring
-  // Shruti Haasan & Mark Rowley Starts Production',
-  //     channel: 'Deadline film + TV',
-  //   },
-  //   {
-  //     id: 2,
-  //     img: IMAGES.news2,
-  //     news: ' Stephen Curry Doc ‘Underrated’ From A24 Lands at Apple ',
-  //     channel: 'The Wrap',
-  //   },
-  //   {
-  //     id: 3,
-  //     img: IMAGES.news3,
-  //     news: 'Peeling Back ‘Glass Onion’: Netflix’s ‘Knives Out’
-  // Theater Plan Sparks Box Office Controversy',
-  //     channel: 'The Hollywood Reporter',
-  //   },
-  //   {
-  //     id: 4,
-  //     img: IMAGES.news4,
-  //     news: 'Anil Kapoor, Madhuri Dixit Hit ‘Jamai Raja’ Gets
-  // Reboot From Shemaroo, Imen (Exclusive)',
-  //     channel: 'Variety Films',
-  //   },
-  //   {
-  //     id: 5,
-  //     img: IMAGES.news5,
-  //     news: '‘From Scratch’ Creators on Cooking Up a Very
-  // Personal Netflix Series',
-  //     channel: 'The Hollywood Reporter',
-  //   },
-  // ]
+
   return (
     <div>
-      <div className='flex mt-8'>
-        <h1 className='text-white text-2xl font-extrabold lg:ml-[17%] ml-2 border-l-4 pl-4 border-[#E0B416]'>Top news</h1>
-        <ChevronRight className='h-7 text-white mt-1' />
+      <div className=''>
+        <div className='flex mt-8'>
+          <h1 className='text-white text-2xl font-extrabold lg:ml-[17%] ml-2 border-l-4 pl-4 border-[#E0B416]'>Top news</h1>
+          <ChevronRightIcon className='h-7 text-white mt-1' />
+        </div>
+        <Link to='/events' className='text-xs text-blue-400 md:ml-[70%] ml-[50%] font-bold cursor-pointer'>Get more recommended...</Link>
+        <ChevronRight className='text-blue-400 -mt-1 md:ml-0 cursor-pointer' />
       </div>
       <div className='flex lg:ml-[17%] mt-4 overflow-x-scroll lg:w-[70%] space-x-4 h-full scrollbar-hide'>
         {

@@ -28,6 +28,7 @@ export const GetWatchlistTrailer = () => async dispatch => {
     const response = await httpRequest.get('watchlist', {
       headers: {
         Authorization: `bearer ${window.localStorage.getItem('token')}`,
+        userID: window.localStorage.getItem('uid'),
       },
     })
     const result = response.data

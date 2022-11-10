@@ -15,6 +15,18 @@ export const UserReducer = (state = InitialState, action) => {
       return {
         ...state, isLoading: false,
       }
+    case actionTypes.UPDATE_USER_START:
+      return {
+        ...state, isLoading: true,
+      }
+    case actionTypes.UPDATE_USER_SUCCESS:
+      return {
+        ...state, isLoading: false,
+      }
+    case actionTypes.UPDATE_USER_FAILED:
+      return {
+        ...state, isLoading: false,
+      }
     default:
       return {
         ...state,

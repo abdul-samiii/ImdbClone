@@ -40,3 +40,20 @@ export const Signin = (data) => async dispatch => {
     dispatch({ type: actionTypes.LOGIN_FAILED })
   }
 }
+
+// CHANGE PASSWORD
+export const ChangePasswordAction = (data) => async dispatch => {
+  try {
+    const queryData = qs.stringify(data)
+    console.log('dayyyyyy ', queryData)
+    dispatch({ type: actionTypes.CHANGE_PASSWORD_START })
+    const response = await httpRequest.patch('auth/changepassword', queryData)
+    const result = response.data
+    toastify(result.message)
+    dispatch({ type: actionTypes.CHANGE_PASSWORD_SUCCESS })
+  } catch (error) {
+    console.log('Error : --- ', error)
+    toastifyError(error.response.data.message)
+    dispatch({ type: actionTypes.CHANGE_PASSWORD_FAILED })
+  }
+}

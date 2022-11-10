@@ -13,7 +13,7 @@ export const GetUsersReviewedTrailers = () => async dispatch => {
       },
     })
     const result = response.data
-    toastify(result.message)
+    // toastify(result.message)
     dispatch({
       type: actionTypes.GET_USERS_TRAILERS_REVIEWS_SUCCESS,
       payload: result.trailerReview,
@@ -33,7 +33,7 @@ export const GetAllUserReviews = () => async dispatch => {
       },
     })
     const result = response.data
-    toastify(result.message)
+    // toastify(result.message)
     dispatch({
       type: actionTypes.GET_ALL_USER_RATINGS_SUCCESS,
       payload: result.trailerReview,

@@ -31,7 +31,7 @@ export const GetAllEventsAction = () => async dispatch => {
       },
     })
     const result = response.data
-    toastify(result.message)
+    // toastify(result.message)
     dispatch({ type: actionTypes.GET_EVENTS_SUCCESS, payload: result.events })
   } catch (error) {
     dispatch({ type: actionTypes.GET_EVENTS_FAILED })
@@ -48,7 +48,7 @@ export const GetChannelEventsAction = (channelID) => async dispatch => {
       },
     })
     const result = response.data
-    toastify(result.message)
+    // toastify(result.message)
     dispatch({ type: actionTypes.GET_CHANNEL_EVENTS_SUCCESS, payload: result.channelEvents })
   } catch (error) {
     dispatch({ type: actionTypes.GET_CHANNEL_EVENTS_FAILED })

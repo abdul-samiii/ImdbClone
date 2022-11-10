@@ -31,7 +31,7 @@ export const GetAllFreeTrailers = () => async dispatch => {
       },
     })
     const result = response.data
-    toastify(result.message)
+    // toastify(result.message)
     dispatch({ type: actionTypes.GET_FREE_TRAILER_SUCCESS, payload: result.freeMovies })
   } catch (error) {
     dispatch({ type: actionTypes.GET_FREE_TRAILER_FAILED })
@@ -66,7 +66,7 @@ export const GetAllFreeImages = () => async dispatch => {
       },
     })
     const result = response.data
-    toastify(result.message)
+    // toastify(result.message)
     dispatch({ type: actionTypes.GET_MOVIE_IMAGE_SUCCESS, payload: result.freeMoviesImage })
   } catch (error) {
     dispatch({ type: actionTypes.GET_MOVIE_IMAGE_FAILED })

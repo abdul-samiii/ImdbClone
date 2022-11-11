@@ -9,6 +9,7 @@ const AddTrailer = () => {
   const [free, setFree] = useState(true)
   const [title, setTitle] = useState('')
   const [duration, setDuration] = useState('')
+  const [earning, setEarning] = useState('')
 
   const handleTrailerType = () => {
     setPro(!pro)
@@ -28,10 +29,10 @@ const AddTrailer = () => {
   }
   const handleUploadEvent = () => {
     const type = free ? 'free' : 'pro'
-    if (title && channel && duration) {
+    if (title && channel && duration && earning) {
       if (videoLink) {
         const obj = {
-          title, videoLink, channel, type, duration,
+          title, videoLink, channel, type, duration, earning,
         }
         AddTrailerAction(obj)
       } else {
@@ -63,6 +64,14 @@ const AddTrailer = () => {
           className='p-2 py-3 rounded-lg w-96'
           value={duration}
           onChange={(e) => setDuration(e.target.value)}
+        />
+      </div>
+      <div className='mt-4'>
+        <input
+          placeholder='Enter Movie Earning'
+          className='p-2 py-3 rounded-lg w-96'
+          value={earning}
+          onChange={(e) => setEarning(e.target.value)}
         />
       </div>
       <div className='mt-4'>

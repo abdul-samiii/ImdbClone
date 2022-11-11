@@ -6,6 +6,7 @@ import { PlayCircleIcon } from '@heroicons/react/24/outline'
 import { BookmarkIcon } from '@heroicons/react/24/solid'
 
 import { ActionCreators } from '../store'
+import { baseurl } from '../config'
 
 const CommingSoon = () => {
   const dispatch = useDispatch()
@@ -54,9 +55,8 @@ const CommingSoon = () => {
         {
           FreeTrailerData?.map((item) => (
             <div className='hover:opacity-90 group'>
-              {/* <img src='http://localhost:5500/uploads/videos/1666977999403.mp4' alt='feature-img' className='h-[100%] w-[300px] max-w-none' /> */}
               <video className='h-[100%] w-[300px] max-w-none' controls>
-                <source src={`http://localhost:5500/uploads/videos/${item.link}`} type='video/mp4' />
+                <source src={`${baseurl}uploads/videos/${item.link}`} type='video/mp4' />
               </video>
               <div className='flex -mt-8'>
                 <PlayCircleIcon className=' ml-2 h-7 font-extrabold text-white group-hover:text-[#E0B416]' />

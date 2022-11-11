@@ -6,6 +6,7 @@ import ChevronRight from '@mui/icons-material/ChevronRight'
 import { Link } from 'react-router-dom'
 
 import { ActionCreators } from '../store'
+import { baseurl } from '../config'
 
 const BornToday = () => {
   const dispatch = useDispatch()
@@ -30,7 +31,7 @@ const BornToday = () => {
         {
           celebritiesData?.map((item) => (
             <div className='hover:opacity-90 group'>
-              <img src={`http://localhost:5500/uploads/images/${item.img}`} alt='feature-img' className='h-[80%] w-[250px] max-w-none' />
+              <img src={`${baseurl}uploads/images/${item.img}`} alt='feature-img' className='h-[80%] w-[250px] max-w-none' />
               <p className=' cursor-pointer text-white z-50 mt-2 text-center'>{item.name}</p>
               <p className='text-center text-gray-500 cursor-pointer'>{item.description}</p>
             </div>

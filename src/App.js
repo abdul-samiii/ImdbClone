@@ -18,6 +18,7 @@ import BrowsePictures from './pages/BrowsePictures'
 import PictureSearchResults from './pages/PictureSearchResults'
 import BrowseCelebrities from './pages/BrowseCelebrities'
 import CelebritySearchResults from './pages/CelebritySearchResults'
+import ChangePassword from './pages/ChangePassword'
 
 const App = () => {
   console.log()
@@ -33,6 +34,7 @@ const App = () => {
             <Route path='/createchannel' element={<AccountSettings />} />
             <Route path='/deletechannel' element={<AccountSettings />} />
             <Route path='/updatechannel' element={<AccountSettings />} />
+            <Route path='/editprofile' element={<AccountSettings />} />
             <Route path='/watchlist' element={<Watchlist />} />
             <Route path='/yourratings' element={<YourRatings />} />
             <Route path='/managechannel' element={<ManageChannel />} />
@@ -49,6 +51,7 @@ const App = () => {
             <Route path='/picturesearch' element={<PictureSearchResults />} />
             <Route path='/celebrities' element={<BrowseCelebrities />} />
             <Route path='/celebritysearch' element={<CelebritySearchResults />} />
+            <Route path='/changepassword' element={<ChangePassword />} />
           </Routes>
         </BrowserRouter>
       </Provider>

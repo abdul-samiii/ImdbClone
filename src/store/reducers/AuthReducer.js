@@ -27,6 +27,18 @@ export const AuthReducer = (state = InitialState, action) => {
       return {
         ...state, isLoading: false,
       }
+    case actionTypes.CHANGE_PASSWORD_START:
+      return {
+        ...state, isLoading: true,
+      }
+    case actionTypes.CHANGE_PASSWORD_SUCCESS:
+      return {
+        ...state, isLoading: false,
+      }
+    case actionTypes.CHANGE_PASSWORD_FAILED:
+      return {
+        ...state, isLoading: false,
+      }
     default:
       return {
         ...state,

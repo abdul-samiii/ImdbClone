@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Footer, Nav } from '../components'
+import { baseurl } from '../config'
 import { ActionCreators } from '../store'
 
 const EventSearchResults = () => {
@@ -29,7 +30,7 @@ const EventSearchResults = () => {
           {
           EventsData?.map((item) => (
             <div className='hover:opacity-90 group flex'>
-              <img src={`http://localhost:5500/uploads/images/${item.img}`} alt='feature-img' className='h-[100%]' />
+              <img src={`${baseurl}uploads/images/${item.img}`} alt='feature-img' className='h-[100%]' />
               <div className='w-[380px] ml-4'>
                 <p className=' cursor-pointer text-white mt-2'>{item.title}</p>
                 <p className='text-gray-500 cursor-pointer'>{item.channel.channelName}</p>

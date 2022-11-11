@@ -31,7 +31,7 @@ export const GetAllCelebritiesAction = () => async dispatch => {
       },
     })
     const result = response.data
-    toastify(result.message)
+    // toastify(result.message)
     dispatch({ type: actionTypes.GET_CELEBRITIES_SUCCESS, payload: result.celebrities })
   } catch (error) {
     dispatch({ type: actionTypes.GET_CELEBRITIES_FAILED })

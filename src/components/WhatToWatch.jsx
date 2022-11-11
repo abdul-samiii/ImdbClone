@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { ActionCreators } from '../store'
+import { baseurl } from '../config'
 
 const WhatToWatch = () => {
   const dispatch = useDispatch()
@@ -92,7 +93,7 @@ const WhatToWatch = () => {
                 }
               </div>
               <video className='h-fit w-[300px] max-w-none rounded-t-xl'>
-                <source src={`http://localhost:5500/uploads/videos/${item.link}`} type='video/mp4' />
+                <source src={`${baseurl}uploads/videos/${item.link}`} type='video/mp4' />
               </video>
               { item.list && (
                 <div className='flex absolute -mt-6'>

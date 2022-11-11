@@ -31,7 +31,7 @@ export const GetChannel = () => async dispatch => {
       },
     })
     const result = response.data
-    toastify(result.message)
+    // toastify(result.message)
     dispatch({ type: actionTypes.GET_CHANNEL_SUCCESS, payload: result.channel })
   } catch (error) {
     dispatch({ type: actionTypes.GET_CHANNEL_FAILED })

@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Footer, Nav } from '../components'
+import { baseurl } from '../config'
 import { ActionCreators } from '../store'
 
 const BrowseCelebrities = () => {
@@ -23,7 +24,7 @@ const BrowseCelebrities = () => {
           {
           celebritiesData?.map((celebrity) => (
             <div className='hover:opacity-90 group'>
-              <img src={`http://localhost:5500/uploads/images/${celebrity.img}`} alt='feature-img' className='h-72 w-[300px]' />
+              <img src={`${baseurl}uploads/images/${celebrity.img}`} alt='feature-img' className='h-72 w-[300px]' />
               <div className='w-[300px] bg-[#1A1A1A] p-4 rounded-b-lg'>
                 <div className='flex'>
                   <div>

@@ -32,7 +32,7 @@ export const GetWatchlistTrailer = () => async dispatch => {
       },
     })
     const result = response.data
-    toastify(result.message)
+    // toastify(result.message)
     dispatch({ type: actionTypes.GET_WATCHLIST_SUCCESS, payload: result.watchlistData })
   } catch (error) {
     dispatch({ type: actionTypes.GET_WATCHLIST_FAILED })

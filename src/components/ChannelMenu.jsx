@@ -27,13 +27,22 @@ const ChannelMenu = () => {
       </div>
       <div className='flex space-x-2 mx-2 mt-2'>
         <div className='space-y-2'>
-          <h2 className='text-white font-bold text-lg bg-[#363232] w-52 text-center p-2 rounded-sm hover:scale-105  transition duration-300 ease-in-out cursor-pointer'><Link to='/manageevents'>Manage Events</Link></h2>
-          <h2 className='text-white font-bold text-lg bg-[#363232] w-52 text-center p-2 rounded-sm hover:scale-105  transition duration-300 ease-in-out cursor-pointer'><Link to='/addtrailer'>Manage Video Trailers</Link></h2>
+          <h2 className='text-white font-bold text-lg bg-[#363232] w-[26.5rem] text-center p-2 rounded-sm hover:scale-105  transition duration-300 ease-in-out cursor-pointer'><Link to='/manageevents'>Manage Events</Link></h2>
+          {/* <h2 className='text-white font-bold text-lg bg-[#363232] w-52
+            text-center p-2 rounded-sm hover:scale-105  transition duration-300 ease-in-out
+            cursor-pointer'><Link to='/addtrailer'>Manage Video Trailers</Link>
+          </h2> */}
         </div>
-        <div className='space-y-2'>
-          <h2 className='text-white font-bold text-lg bg-[#363232] w-52 text-center p-2 rounded-sm hover:scale-105  transition duration-300 ease-in-out cursor-pointer'><Link to='/addcelebrity'>Manage Celebrities</Link></h2>
-          <h2 className='text-white font-bold text-lg bg-[#363232] w-52 text-center p-2 rounded-sm hover:scale-105  transition duration-300 ease-in-out cursor-pointer'><Link to='/addmovieimages'>Manage Movie Images</Link></h2>
-        </div>
+        {/* <div className='space-y-2'>
+          <h2 className='text-white font-bold text-lg bg-[#363232] w-52 text-center p-2 rounded-sm
+            hover:scale-105  transition duration-300 ease-in-out cursor-pointer'>
+            <Link to='/addcelebrity'>Manage Celebrities</Link>
+          </h2>
+          <h2 className='text-white font-bold text-lg bg-[#363232] w-52 text-center p-2 rounded-sm
+            hover:scale-105  transition duration-300 ease-in-out cursor-pointer'>
+            <Link to='/addmovieimages'>Manage Movie Images</Link>
+          </h2>
+        </div> */}
       </div>
     </div>
   )

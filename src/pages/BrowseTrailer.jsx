@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Footer, Nav } from '../components'
 import { ActionCreators } from '../store'
+import { baseurl } from '../config'
 
 const BrowseTrailer = () => {
   const dispatch = useDispatch()
@@ -72,7 +73,7 @@ const BrowseTrailer = () => {
                 }
               </div>
               <video className='h-fit w-[350px] max-w-none rounded-t-lg' controls>
-                <source src={`http://localhost:5500/uploads/videos/${watchlist.link}`} type='video/mp4' />
+                <source src={`${baseurl}uploads/videos/${watchlist.link}`} type='video/mp4' />
               </video>
               <div className='w-[350px] bg-[#1A1A1A] p-4 rounded-b-lg'>
                 <div className='flex'>

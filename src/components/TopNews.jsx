@@ -6,6 +6,7 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
 import { ActionCreators } from '../store'
+import { baseurl } from '../config'
 
 const TopNews = () => {
   const dispatch = useDispatch()
@@ -29,7 +30,7 @@ const TopNews = () => {
         {
           EventsData.map((item) => (
             <div className='hover:opacity-90 group flex w-[70%]'>
-              <img src={`http://localhost:5500/uploads/images/${item.img}`} alt='feature-img' className='h-[100%]' />
+              <img src={`${baseurl}uploads/images/${item.img}`} alt='feature-img' className='h-[100%]' />
               <div className='w-[380px] ml-4'>
                 <p className=' cursor-pointer text-white mt-2'>{item.title}</p>
                 <p className='text-gray-500 cursor-pointer'>{item.channel.channelName}</p>

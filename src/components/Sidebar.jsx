@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { bindActionCreators } from 'redux'
+import { baseurl } from '../config'
 
 // import { sideData } from '../data'
 import { ActionCreators } from '../store'
@@ -28,7 +29,7 @@ const Sidebar = () => {
         <div className='flex mt-8 hover:bg-[#121212] w-full'>
           {/* <img src={item.img} alt='side-img' className='h-36' /> */}
           <video className='h-36'>
-            <source src={`http://localhost:5500/uploads/videos/${item.link}`} type='video/mp4' />
+            <source src={`${baseurl}uploads/videos/${item.link}`} type='video/mp4' />
           </video>
           <div className='ml-4 mt-4'>
             <div className='flex'>

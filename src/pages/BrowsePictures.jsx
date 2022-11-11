@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import { Footer, Nav } from '../components'
+import { baseurl } from '../config'
 import { ActionCreators } from '../store'
 
 const BrowsePictures = () => {
@@ -26,7 +27,7 @@ const BrowsePictures = () => {
           {
           ImagesData?.map((image) => (
             <div className='hover:opacity-90 group'>
-              <img src={`http://localhost:5500/uploads/images/${image.link}`} alt='feature-img' className='h-64 w-[300px]' />
+              <img src={`${baseurl}uploads/images/${image.link}`} alt='feature-img' className='h-64 w-[300px]' />
               <div className='w-[300px] bg-[#1A1A1A] p-4 rounded-b-lg'>
                 <div className='flex'>
                   <div>

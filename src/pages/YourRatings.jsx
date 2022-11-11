@@ -15,6 +15,7 @@ import { bindActionCreators } from 'redux'
 import RedirectWithoutLogin from '../AuthRedirection/RedirectWithoutLogin'
 
 import { Footer, Nav } from '../components'
+import { baseurl } from '../config'
 import { ActionCreators } from '../store'
 
 const YourRatings = () => {
@@ -112,7 +113,7 @@ const YourRatings = () => {
                       </div>
                       <div className='h-full flex group'>
                         <video className='h-[100%] w-[300px] max-w-none' controls>
-                          <source src={`http://localhost:5500/uploads/videos/${watchlist?.trailerId?.link}`} type='video/mp4' />
+                          <source src={`${baseurl}uploads/videos/${watchlist?.trailerId?.link}`} type='video/mp4' />
                         </video>
                       </div>
                       <p className='font-mono px-2 mt-1'>1.</p>

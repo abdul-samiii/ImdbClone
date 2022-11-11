@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux'
 import { Link } from 'react-router-dom'
 
 import { ActionCreators } from '../store'
+import { baseurl } from '../config'
 
 const Featured = () => {
   const dispatch = useDispatch()
@@ -27,7 +28,7 @@ const Featured = () => {
         {
           ImagesData?.map((item) => (
             <div className='relative border-x-[1px] border-white hover:scale-110 hover:z-50 transition transform duration-300 ease-in-out hover:opacity-70'>
-              <img src={`http://localhost:5500/uploads/images/${item.link}`} alt='feature-img' className='h-64 w-60' />
+              <img src={`${baseurl}uploads/images/${item.link}`} alt='feature-img' className='h-64 w-60' />
               { item.list && (
                 <div className='flex absolute -mt-6'>
                   <List className=' ml-2 h-10 font-extrabold text-white' />
